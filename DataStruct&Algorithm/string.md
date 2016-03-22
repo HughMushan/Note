@@ -54,6 +54,23 @@ public:
     }
 };
 ```
+##从后往前遍历更简单
+- leetcode: [Length of Last Word | LeetCode OJ](https://leetcode.com/problems/length-of-last-word/)
+- lintcode: [(422) Length of Last Word](http://www.lintcode.com/en/problem/length-of-last-word/)
+
+```
+Given a string s consists of upper/lower-case alphabets and empty space characters ' ',
+return the length of last word in the string.
+
+If the last word does not exist, return 0.
+
+Have you met this question in a real interview? Yes
+Example
+Given s = "Hello World", return 5.
+
+Note
+A word is defined as a character sequence consists of non-space characters only.
+```
 ##万能的hash
 - lintcode: [(55) Compare Strings](http://www.lintcode.com/en/problem/compare-strings/)
  
@@ -68,4 +85,33 @@ For A = "ABCD", B = "ABC", return true.
 For A = "ABCD" B = "AABC", return false.
 ```
 这类问题跟匹配子串的问题不同，它跟字符串的顺序是没有关系。题目中另外给的条件则是A和B都是全大写单词，理解题意后容易想到的方案就是先遍历 A 和 B 统计各字符出现的频次，然后比较频次大小即可。嗯，祭出万能的哈希表。
+```c++
+class Solution {
+public:
+    /**
+     * @param A: A string includes Upper Case letters
+     * @param B: A string includes Upper Case letter
+     * @return:  if string A contains all of the characters in B return true
+     *           else return false
+     */
+    bool compareStrings(string A, string B) {
+        if (A.size() < B.size()) {
+            return false;
+        }
 
+        const int alphabetNum = 26;
+        int letterCount[alphabetNum] = {0};
+        for (int i = 0; i != A.size(); ++i) {
+            ++letterCount[A[i] - 'A'];
+        }
+        for (int i = 0; i != B.size(); ++i) {
+            --letterCount[B[i] - 'A'];
+            if (letterCount[B[i] - 'A'] < 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+};
+```
