@@ -4,7 +4,7 @@
 
 字符串操作是数据结构与算法中最基本的内容，主要是操作`char *`或者是`string`类型，主要会考到字符串的遍历、匹配、反转等相关的操作，常见的问题有以下几种：
 
-##Longest Common Substring
+##简单的字符串遍历
 ---
 - lintcode: [(79) Longest Common Substring](http://www.lintcode.com/en/problem/longest-common-substring/)
 
@@ -54,3 +54,4 @@ public:
     }
 };
 ```
+##
