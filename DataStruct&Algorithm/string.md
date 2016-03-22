@@ -54,4 +54,18 @@ public:
     }
 };
 ```
-##使用hash表统计
+##万能的hash
+- lintcode: [(55) Compare Strings](http://www.lintcode.com/en/problem/compare-strings/)
+ 
+```
+Compare two strings A and B, determine whether A contains all of the characters in B.
+
+The characters in string A and B are all Upper Case letters.
+
+Example
+For A = "ABCD", B = "ABC", return true.
+
+For A = "ABCD" B = "AABC", return false.
+```
+这类问题跟匹配子串的问题不同，它跟字符串的顺序是没有关系。题目中另外给的条件则是A和B都是全大写单词，理解题意后容易想到的方案就是先遍历 A 和 B 统计各字符出现的频次，然后比较频次大小即可。嗯，祭出万能的哈希表。
+
