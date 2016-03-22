@@ -1,6 +1,6 @@
 # Note
 ---
 
-##Data Struct and Algorithm
+##Data Structure and Algorithm
 
 
