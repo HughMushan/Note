@@ -1,5 +1,6 @@
-# 学习笔记
+# Note
 ---
 
-##数据结构与算法总结
+##Data Struct and Algorithm
+
 
