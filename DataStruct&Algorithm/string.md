@@ -55,6 +55,7 @@ public:
 };
 ```
 ##从后往前遍历更简单
+---
 - leetcode: [Length of Last Word | LeetCode OJ](https://leetcode.com/problems/length-of-last-word/)
 - lintcode: [(422) Length of Last Word](http://www.lintcode.com/en/problem/length-of-last-word/)
 
@@ -71,7 +72,23 @@ Given s = "Hello World", return 5.
 Note
 A word is defined as a character sequence consists of non-space characters only.
 ```
+有些字符串的处理顺序处理的情况比较多，可以考虑从后往前逆向操作，减少情况的讨论。此外字符串的尾部往往有足够空间，可以直接修改而不用担心覆盖字符串前面的数据。
+``` c++
+    int lengthOfLastWord(string s) {
+        if (s.size() == 0) return 0;
+       
+        int count = 0;
+        for (int i=s.size()-1; i>=0; i--)
+            if (s[i] == ' ') {
+                if (count) break;
+            } else count++;
+
+        return count;
+    }
+```
+
 ##万能的hash
+---
 - lintcode: [(55) Compare Strings](http://www.lintcode.com/en/problem/compare-strings/)
  
 ```
