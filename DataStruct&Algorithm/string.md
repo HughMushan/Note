@@ -86,6 +86,9 @@ A word is defined as a character sequence consists of non-space characters only.
         return count;
     }
 ```
+类似的题还有：
+
+lintcode: [(212) Space Replacement](http://www.lintcode.com/en/problem/space-replacement/)
 
 ##万能的hash
 ---
@@ -144,6 +147,8 @@ If source = `"source"` and target = `"target"`, return `-1`.
 If source = `"abcdabcdefg"` and target = `"bcd"`, return `1`
 O(n2) is acceptable. Can you implement an O(n) algorithm? (hint: _KMP_)
 ```
+字符串匹配问题是字符串相关问题中比较难的了，可能会问到KMP算法。首先最简单的方法就是暴力遍历，两个for循环可以解决，时间复杂度为O(n^2)。可以注意到，暴力方法每次都是重新匹配，没有使用遍历过程中已经匹配过的信息。KMP算法就是利用不匹配字符的前面那一段字符的最长前后缀来尽可能地跳过最大的距离。利用模式串自身的信息，构建一个next数组，记录模式串对应位置发生不匹配时可以返回模式串新的位置。比如
 
+![kmp](img\kmp-next.pmg)
 
 
