@@ -24,11 +24,8 @@
             "token": "utQHy1R2XyiVqDqaZqws",
             "version": "2.0.0"
         },
-        "sitemap": {
-            "hostname": "http://algorithm.yuanbin.me/"
-        },
         "github": {
-            "url": "https://github.com/billryan/algorithm-exercise"
+            "url": "https://github.com/HughMushan/Note.git"
         },
         "edit-link": {
             "base": "https://github.com/billryan/algorithm-exercise/edit/master",
