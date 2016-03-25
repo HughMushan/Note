@@ -1,3 +1,3 @@
 # Table of content
 
-* [Data Structure and Algorithms](chapter1.md)
+* [Data Structure and Algorithms](DataStruct&Algorithm/README.md)
