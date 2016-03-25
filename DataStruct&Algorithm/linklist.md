@@ -90,8 +90,9 @@ ListNode *reverseBetween(ListNode *head, int m, int n) {
           curr = curr->next;
         }
     }
-    ListNode *prem = curr, mNode = curr->next;
-    ListNode *
+    ListNode *prem = curr, *mNode = curr->next;
+    ListNode *nNode = mNode, *postn = mNode->next;
+    
     
     
 }
