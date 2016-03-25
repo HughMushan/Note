@@ -85,7 +85,7 @@ ListNode *reverseBetween(ListNode *head, int m, int n) {
     dummy->next = head;
     ListNode *curr = dummy;
     for(int i = 0; i < m; i ++) {
-        if(curr == NULL) return head;
+        if(curr == NULL) return NULL;
         else {
           curr = curr->next;
         }
