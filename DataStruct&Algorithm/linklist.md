@@ -92,7 +92,12 @@ ListNode *reverseBetween(ListNode *head, int m, int n) {
     }
     ListNode *prem = curr, *mNode = curr->next;
     ListNode *nNode = mNode, *postn = mNode->next;
-    
+    for(int i = m, i < n; i ++) {
+      ListNode *temp = postn->next;
+      postn->next = nNode;
+      nNode = postn;
+      postn = temp;
+    }
     
     
 }
