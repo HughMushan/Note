@@ -80,6 +80,7 @@ Reverse it in-place and in one-pass
 
 ```c++
 ListNode *reverseBetween(ListNode *head, int m, int n) {
+    if(head == NULL || m > n) return NULL;
     ListNode *dummy = new ListNode(0);
     dummy->next = head;
     ListNode *curr = dummy;
