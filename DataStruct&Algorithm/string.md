@@ -253,4 +253,4 @@ public:
 };
 
 ```
-除了暴力遍历和KMP算法外还有许多字符串匹配的算法，比如Boyer Moore、Robin　Karp、Sunday、Bitap等方法。可以参考[这里](http://blog.csdn.net/airfer/article/details/8951802/)。
+除了暴力遍历和KMP算法外还有许多字符串匹配的算法，比如Boyer Moore、Robin　Karp、Sunday、Bitap等方法。可以参考[这里](http://blog.csdn.net/airfer/article/details/8951802/)和[这里](http://wiki.jikexueyuan.com/project/kmp-algorithm/introduction.html)
