@@ -15,3 +15,32 @@
     
 - 判断单链表是否有环
 	利用快慢指针的原理，同样设置两个指针 `*fast`、`*slow` 都指向单链表的头节点，其中 `*fast`的移动速度是`*slow`的2倍。如果 `*fast = NULL`，说明该单链表 以 `NULL`结尾，不是循环链表；如果 `*fast = *slow`，则快指针追上慢指针，说明该链表是循环链表。
+
+##链表反转
+
+- leetcode: [Reverse Linked List | LeetCode OJ](https://leetcode.com/problems/reverse-linked-list/)
+- lintcode: [(35) Reverse Linked List](http://www.lintcode.com/en/problem/reverse-linked-list/)
+
+```
+Reverse a linked list.
+
+Example
+For linked list 1->2->3, the reversed linked list is 3->2->1
+
+Challenge
+Reverse it in-place and in one-pass
+```
+链表反转是链表问题当中比较简单又比较常问的题，应该要很快速的写出来。
+
+```c++
+void ReverseList(ListNode *head) {
+    ListNode *prev = NULL;
+    ListNode *curr = head;
+    while(curr != NULL) {
+       ListNode *temp = curr->next;
+       curr->next = prev;
+       prev = curr;
+       curr = temp;
+    }
+}
+```
