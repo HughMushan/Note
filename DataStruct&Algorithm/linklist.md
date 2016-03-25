@@ -33,7 +33,7 @@ Reverse it in-place and in one-pass
 链表反转是链表问题当中比较简单又比较常问的题，应该要很快速的写出来。
 
 ```c++
-void ReverseList(ListNode *head) {
+ListNode* ReverseList(ListNode *head) {
     ListNode *prev = NULL;
     ListNode *curr = head;
     while(curr != NULL) {
@@ -42,5 +42,7 @@ void ReverseList(ListNode *head) {
        prev = curr;
        curr = temp;
     }
+    head = prev;
+    return head;
 }
 ```
