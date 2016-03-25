@@ -11,7 +11,7 @@
 
 
 ---
-reference:
+Reference:
 
 [1]. <http://algorithm.yuanbin.me/>
 
