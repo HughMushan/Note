@@ -124,4 +124,5 @@ Challenge
 Follow up:
 Can you solve it without using extra space?
 ```
+判断链表是否有环并找到环的入口。比较简单的思路是使用快慢指针，`fast`指针每次移动２步，`slow`指针每次移动1步，遍历链表，`fast`指针可以走到为NULL的节点说明该链表不为环，否则`fast`和`slow`必会相遇。接着找环的入口，将`fast`指针重新指向头节点，并之后每次移动1步，`fast`和`slow`再次相遇的节点为环入口节点。
 
