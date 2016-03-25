@@ -79,7 +79,12 @@ Reverse it in-place and in one-pass
 思路也很简单，先找到m节点，同时也要记录m节点的前一节点`prem`，然后将m到n节点的next指针指向前一个节点，记录n节点的后一节点`postn`，将prem的next指针指向n，postn的next指针指向m。
 
 ```c++
-ListNode *
+ListNode *reverseBetween(ListNode *head, int m, int n) {
+    ListNode *dummy = new ListNode(0);
+    dummy->next = head;
+    ListNode *curr = dummy;
+    
+}
 
 ```
 
