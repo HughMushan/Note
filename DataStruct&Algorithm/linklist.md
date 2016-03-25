@@ -99,6 +99,10 @@ ListNode *reverseBetween(ListNode *head, int m, int n) {
       postn = temp;
     }
     
+    prem->next = nNode;
+    postn->next = mNode;
+    
+    return dummy->next;
     
 }
 
