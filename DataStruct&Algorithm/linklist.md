@@ -33,16 +33,29 @@ Reverse it in-place and in one-pass
 链表反转是链表问题当中比较简单又比较常问的题，应该要很快速的写出来。
 
 ```c++
-ListNode* ReverseList(ListNode *head) {
-    ListNode *prev = NULL;
-    ListNode *curr = head;
-    while(curr != NULL) {
-       ListNode *temp = curr->next;
-       curr->next = prev;
-       prev = curr;
-       curr = temp;
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverse(ListNode* head) {
+        ListNode *prev = NULL;
+        ListNode *curr = head;
+        while (curr != NULL) {
+            ListNode *temp = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = temp;
+        }
+        // fix head
+        head = prev;
+
+        return head;
     }
-    head = prev;
-    return head;
-}
+};
 ```
