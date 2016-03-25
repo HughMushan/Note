@@ -21,9 +21,8 @@
 ##链表反转
 ---
 
-leetcode: [Reverse Linked List | LeetCode OJ](https://leetcode.com/problems/reverse-linked-list/)
-
-lintcode: [(35) Reverse Linked List](http://www.lintcode.com/en/problem/reverse-linked-list/)
+- leetcode: [Reverse Linked List | LeetCode OJ](https://leetcode.com/problems/reverse-linked-list/)
+- lintcode: [(35) Reverse Linked List](http://www.lintcode.com/en/problem/reverse-linked-list/)
 
 ```
 Reverse a linked list.
