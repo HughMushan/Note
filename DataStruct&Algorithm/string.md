@@ -147,8 +147,100 @@ If source = `"source"` and target = `"target"`, return `-1`.
 If source = `"abcdabcdefg"` and target = `"bcd"`, return `1`
 O(n2) is acceptable. Can you implement an O(n) algorithm? (hint: _KMP_)
 ```
-字符串匹配问题是字符串相关问题中比较难的了，可能会问到KMP算法。首先最简单的方法就是暴力遍历，两个for循环可以解决，时间复杂度为O(n^2)。可以注意到，暴力方法每次都是重新匹配，没有使用遍历过程中已经匹配过的信息。KMP算法就是利用不匹配字符的前面那一段字符的最长前后缀来尽可能地跳过最大的距离。利用模式串自身的信息，构建一个next数组，记录模式串对应位置发生不匹配时可以返回模式串新的位置。比如
+字符串匹配问题是字符串相关问题中比较难的了，可能会问到KMP算法。首先最简单的方法就是暴力遍历，两个for循环可以解决，时间复杂度为O(n^2)。可以注意到，暴力方法每次都是重新匹配，没有使用遍历过程中已经匹配过的信息。KMP算法就是利用不匹配字符的前面那一段字符的最长前后缀来尽可能地跳过最大的距离。难点在于如何理解next数组，以及利用模式串自身的信息，构建一个next数组。比如
 
-![kmp](img\kmp-next.pmg)
+![kmp](img/kmp-next.png)
+当模式串最后一个D与源串发生不匹配，此时已匹配数为６，查看next[6-1]为２，重新将已匹配数设为２，比较模式串的第三个字符是否与源串匹配。如此类推。详细KMP算法讲解可以参考[这里](http://www.cnblogs.com/c-cloud/p/3224788.html)。
 
+代码实现如下：
+```c++
+class Solution {
+public:
+    /**
+     * Returns a index to the first occurrence of target in source,
+     * or -1  if target is not part of source.
+     * @param source string to be scanned.
+     * @param target string containing the sequence of characters to match.
+     */
+    int strStr(const char *source, const char *target) {
+        if(source == NULL || target == NULL)
+        {
+            return -1;
+        }
 
+        return kmp(source, target);
+    }
+    
+    int normalMethod(const char *source, const char *target) {
+        if(source == NULL || target == NULL)
+        {
+            return -1;
+        }
+        const int sourceLen = strlen(source);
+        const int targetLen = strlen(target);
+        for(int i = 0; i < sourceLen-targetLen+1; i ++)
+        {
+            int j = 0;
+            for(; j < targetLen; j ++)
+            {
+                if(*(source+i+j) != *(target+j))
+                    break;
+            }
+
+            if( j == targetLen)
+            {
+                return i;
+            }
+
+        }
+        return -1;
+    }
+    
+    
+    int kmp(const char *source, const char *target) {
+        const int srcLen = strlen(source);
+        const int targetLen = strlen(target);
+        
+        if(targetLen == 0) return 0;
+        if(srcLen == 0) return -1;
+        
+        int *next = new int[targetLen];
+        makeNext(target, next);
+        
+        for(int i = 0, k = 0; i < srcLen; i ++) {
+            while(k > 0 && target[k] != source[i]) {
+                k = next[k - 1];
+            }
+            if(source[i] == target[k]) {
+                k ++;
+            }
+            
+            if(k == targetLen) return i-targetLen+1;
+            
+        }
+        
+        return -1;
+        
+    }
+    
+    void makeNext(const char *target, int next[]) {
+        const int targetLen = strlen(target);
+        next[0] = 0;
+        
+        for(int i = 1, k = 0; i < targetLen; i++) {
+            while(k > 0 && target[k] != target[i]) {
+                k = next[k - 1];
+            }
+            
+            if(target[i] == target[k]) {
+                
+                k ++;
+            }
+            
+            next[i] = k;
+        }
+        
+    }
+};
+
+```
