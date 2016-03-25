@@ -13,7 +13,7 @@
 ---
 reference:
 
-[1]. http://algorithm.yuanbin.me/
+[1]. <http://algorithm.yuanbin.me/>
 
 
 
