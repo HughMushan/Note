@@ -17,9 +17,11 @@
 	利用快慢指针的原理，同样设置两个指针 `*fast`、`*slow` 都指向单链表的头节点，其中 `*fast`的移动速度是`*slow`的2倍。如果 `*fast = NULL`，说明该单链表 以 `NULL`结尾，不是循环链表；如果 `*fast = *slow`，则快指针追上慢指针，说明该链表是循环链表。
 
 ##链表反转
+---
 
-- leetcode: [Reverse Linked List | LeetCode OJ](https://leetcode.com/problems/reverse-linked-list/)
-- lintcode: [(35) Reverse Linked List](http://www.lintcode.com/en/problem/reverse-linked-list/)
+leetcode: [Reverse Linked List | LeetCode OJ](https://leetcode.com/problems/reverse-linked-list/)
+
+lintcode: [(35) Reverse Linked List](http://www.lintcode.com/en/problem/reverse-linked-list/)
 
 ```
 Reverse a linked list.
@@ -52,10 +54,24 @@ public:
             prev = curr;
             curr = temp;
         }
-        // fix head
         head = prev;
-
         return head;
     }
 };
 ```
+链表反转还有升级版，就是区域链表反转
+
+leetcode: [Reverse Linked List II | LeetCode OJ](https://leetcode.com/problems/reverse-linked-list-ii/)
+
+lintcode: [(36) Reverse Linked List II](http://www.lintcode.com/en/problem/reverse-linked-list-ii/)
+
+Reverse a linked list from position m to n.
+
+Given **1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL**, m = 2 and n = 4, return
+1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;NULL.
+
+Given m, n satisfy the following condition: 1 ≤ m ≤ n ≤ length of list.
+Reverse it in-place and in one-pass
+
+
+
