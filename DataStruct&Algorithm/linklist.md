@@ -111,17 +111,17 @@ ListNode *reverseBetween(ListNode *head, int m, int n) {
 
 ##判断链表是否有环
 ---
-- leetcode: [Linked List Cycle | LeetCode OJ](https://leetcode.com/problems/linked-list-cycle/)
-- lintcode: [(102) Linked List Cycle](http://www.lintcode.com/en/problem/linked-list-cycle/)
+- leetcode: [Linked List Cycle II | LeetCode OJ](https://leetcode.com/problems/linked-list-cycle-ii/)
+- lintcode: [(103) Linked List Cycle II](http://www.lintcode.com/en/problem/linked-list-cycle-ii/)
 
 ```
-Given a linked list, determine if it has a cycle in it.
+Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
 
 Example
-Given -21->10->4->5, tail connects to node index 1, return true
+Given -21->10->4->5, tail connects to node index 1，return node 10
 
 Challenge
 Follow up:
 Can you solve it without using extra space?
-
+```
 
