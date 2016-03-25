@@ -22,7 +22,7 @@
             "version": "2.0.0"
         },
         "sitemap": {
-            "hostname": " https://hughmushan.gitbooks.io/note/content/"
+            "hostname": "note.hughmushan.me"
         },
         "github": {
             "url": "https://github.com/HughMushan/Note.git"
