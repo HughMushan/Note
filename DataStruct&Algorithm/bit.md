@@ -116,6 +116,21 @@ O(n) time, O(1) extra space.
 这道题的巧妙之处在于利用`x1 ^ x2`的结果对原数组进行了分组，进而将`x1`和`x2`分开了。具体方法则是利用了`x1 ^ x2`不为0的特性，如果`x1 ^ x2`不为0，那么`x1 ^ x2`的结果必然存在某一二进制位不为0（即为1），我们不妨将最低位的1提取出来，由于在这一二进制位上`x1`和`x2`必然相异，即`x1`, `x2`中相应位一个为0，另一个为1，所以我们可以利用这个最低位的1将`x1`和`x2`分开。又由于除了`x1`和`x2`之外其他数都是成对出现，故与最低位的1异或时一定会抵消，十分之精妙！
 
 ```c++
-
+    class Solution {
+    public:
+      vector<int> singleNumberIII(vector<int> &A) {
+            vector<int> result;
+            if(A.empty()) return result;
+            //获得 x1^x2
+            int x1_xor_x2 = 0;
+            for(auto num : A) {
+                x1_xor_x2 ^= num;
+            }
+            //获得最低位为1的位
+            int last_1_bit = x1_xor_x2 -(x1_xor_x2&(x1_xor_x2-1));
+            
+            
+      }
+    };
 ```
 
