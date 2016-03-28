@@ -34,3 +34,22 @@ Given [1,2,2,1,3,4,3], return 4
 Challenge
 One-pass, constant extra space
 ```
+可以使用异或运算的特性，根据`x ^ x = 0`和`x ^ 0 = x`可将给定数组的所有数依次异或，最后保留的即为结果。
+
+```c++
+class Solution {
+public:
+	/**
+	 * @param A: Array of integers.
+	 * return: The single number.
+	 */
+    int singleNumber(vector<int> &A) {
+        if(A.empty()) return -1;
+        int result = 0;
+        for(auto num : A) {
+          result = result ^ num;
+        }
+        return result;
+    }
+};
+```
