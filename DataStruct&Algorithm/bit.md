@@ -54,4 +54,13 @@ public:
 };
 ```
 来看这个问题的升级版，如果每个数不是重复2个而是三个怎么办？
+- leetcode: [Single Number II | LeetCode OJ](https://leetcode.com/problems/single-number-ii/)
+- lintcode: [(83) Single Number II](http://www.lintcode.com/en/problem/single-number-ii/)
 
+Given `3*n + 1` numbers, every numbers occurs triple times except one, find it.
+
+Example
+Given `[1,1,2,3,3,3,2,2,4,1]` return `4`
+
+Challenge
+One-pass, constant extra space.
