@@ -21,8 +21,10 @@
 下面来看一些具体的题：
 
 ##找单数
+---
 
 - lintcode: [(82) Single Number](http://www.lintcode.com/en/problem/single-number/)
+
 ```
 Given 2*n + 1 numbers, every numbers occurs twice except one, find it.
 
