@@ -20,6 +20,41 @@
 
 下面来看一些具体的题：
 
+##数1
+---
+- lintcode: [(365) Count 1 in Binary](http://www.lintcode.com/en/problem/count-1-in-binary/)
+
+```
+Count how many 1 in binary representation of a 32-bit integer.
+
+Example
+Given 32, return 1
+Given 5, return 2
+Given 1023, return 9
+
+Challenge
+If the integer is n bits with m 1 bits. Can you do it in O(m) time?
+```
+利用运算`a & (a-1)`可以将a的最低位1置0的性质，可以很巧妙的使用位操作来实现。
+
+``` c++
+class Solution {
+public:
+    /**
+     * @param num: an integer
+     * @return: an integer, the number of ones in num
+     */
+    int countOnes(int num) {
+        int count = 0;
+        while(num) {
+            num &= (num-1);
+            count ++;
+        }
+        return count;
+    }
+};
+```
+
 ##找单数
 ---
 
