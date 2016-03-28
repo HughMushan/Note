@@ -128,8 +128,18 @@ O(n) time, O(1) extra space.
             }
             //获得最低位为1的位
             int last_1_bit = x1_xor_x2 -(x1_xor_x2&(x1_xor_x2-1));
-            
-            
+            int x1 = 0, x2 = 0;
+            for(auto num : A) {
+                if((last_1_bit & num) == 0) {
+                    x1 ^= num;
+                } 
+                else {
+                    x2 ^= num;
+                }
+            }
+            result.push_back(x1);
+            result.push_back(x2);
+            return result;
       }
     };
 ```
