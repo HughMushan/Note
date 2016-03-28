@@ -100,3 +100,14 @@ public:
 ```
 这个问题还有一个升级版，就是这个落单的数有两个怎么办？
 
+- lintcode: [(84) Single Number III](http://www.lintcode.com/en/problem/single-number-iii/)
+
+```
+Given 2*n + 2 numbers, every numbers occurs twice except two, find them.
+
+Example
+Given [1,2,2,3,4,4,5,3] return 1 and 5
+
+Challenge
+O(n) time, O(1) extra space.
+```
