@@ -112,6 +112,7 @@ One-pass, constant extra space.
 ```
 注意到其中的奥义了么？三个相同的数相加，不仅其和能被3整除，其二进制位上的每一位也能被3整除！因此我们只需要一个和`int`类型相同大小的数组记录每一位累加的结果即可。时间复杂度约为 $$O((3n+1)\cdot sizeof(int) \cdot 8)$$ 
 
+
 ```c++
 class Solution {
 public:
