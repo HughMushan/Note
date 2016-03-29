@@ -2,9 +2,9 @@ $$f(x) = \int_{-\infty}^\infty
     \hat f(\xi)\,e^{2 \pi i \xi x}
     \,d\xi $$
     
-$$\begin{vmatrix}
+$$\begin{Vmatrix}
 1&2&3&\\
 3&4&4&\\
-5&4&4&\end{vmatrix}$$
+5&4&4&\end{Vmatrix}$$
 
-$$f \dfrac f$$
+$$ \bigtriangledown f \sum_{j=1}^\infty f$$
