@@ -1,8 +1,9 @@
 # Table of content
 
 * [Data Structure and Algorithms](DataStruct&Algorithm/README.md)
-  * [string](DataStruct&Algorithm/string.md)
-  * [linklist](DataStruct&Algorithm/linklist.md)
-  * [bit manipulation](DataStruct&Algorithm/bit.md)
+  * [String](DataStruct&Algorithm/string.md)
+  * [Linklist](DataStruct&Algorithm/linklist.md)
+  * [Bit manipulation](DataStruct&Algorithm/bit.md)
 
 * [Machine Learning](MachineLearning/README.md)
+  * [Linear algebra](MachineLearning/linear algebrea.md)
