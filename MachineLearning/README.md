@@ -1,1 +1,1 @@
-$$a \rlap $$
+$$a \mathrm $$
