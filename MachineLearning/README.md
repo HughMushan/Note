@@ -1,1 +1,1 @@
-$$a \mathrm $$
+$$a \uparrow $$
