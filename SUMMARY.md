@@ -6,4 +6,4 @@
   * [Bit manipulation](DataStruct&Algorithm/bit.md)
 
 * [Machine Learning](MachineLearning/README.md)
-  * [Linear algebra](MachineLearning/linear algebra.md)
+  * [Linear algebra](MachineLearning/linear_algebra.md)
