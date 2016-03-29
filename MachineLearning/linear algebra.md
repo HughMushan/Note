@@ -24,5 +24,4 @@
   $$
   \frac {\partial M^{-1}}{\partial \theta} = -M^{-1}\frac {\partial M}{\partial \theta}M^{-1}
   $$
-
-5.矩阵的行列式的值能够反映矩阵一系列重要的性质。如果矩阵的每一列看成是一个列向量，如果这些列向量不是线性无关的，则$$\begin{vmatrix}M\end{vmatrix}$$等于零。协方差矩阵$$\Sigma$$表示一个数据集合的二阶矩
+5.矩阵的逆运算，只要一个$$ d \times d$$
