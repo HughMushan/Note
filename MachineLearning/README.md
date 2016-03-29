@@ -1,1 +1,1 @@
-$$a \uparrow $$
+$$a \rceil $$
