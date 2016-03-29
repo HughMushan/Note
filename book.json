@@ -1,42 +1,5 @@
 {
     "plugins": [
-        "disqus",
-        "ga",
         "katex",
-        "richquotes",
-        "swiftype",
-        "sitemap",
-        "github",
-        "edit-link",
-        "-search"
-    ],
-    "pluginsConfig": {
-        "disqus": {
-            "shortName": "algorithm4bill"
-        },
-        "ga": {
-            "token": "UA-32317667-7"
-        },
-        "richquotes": {
-            "todos": true
-        },
-        "swiftype": {
-            "token": "utQHy1R2XyiVqDqaZqws",
-            "version": "2.0.0"
-        },
-        "sitemap": {
-            "hostname": "http://algorithm.yuanbin.me/"
-        },
-        "github": {
-            "url": "https://github.com/billryan/algorithm-exercise"
-        },
-        "edit-link": {
-            "base": "https://github.com/billryan/algorithm-exercise/edit/master",
-            "label": {
-                    "en": "Edit Page",
-                    "zh-hans": "编辑此页",
-                    "zh-tw": "編輯此頁"
-            }
-        }
-    }
+    ]
 }
