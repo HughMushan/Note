@@ -6,7 +6,7 @@
   * [Bit manipulation](DataStruct&Algorithm/bit.md)
 
 * C++ Tips(C++Tips/README.md)
-*
+  * The Annotated STL Source
 
 
 * [Machine Learning](MachineLearning/README.md)
