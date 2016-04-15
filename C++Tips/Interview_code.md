@@ -51,6 +51,8 @@ public:
 ```
 
 ##memcpy实现
+要考虑为空的情况，注意指针运算，注意内存覆盖的情况。strcpy也是类似，不过在strcpy中要注意dest的末尾要补上`'\0'`.
+
 ```c++
 class Solution {
 public:
