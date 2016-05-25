@@ -24,11 +24,13 @@
  
  ##new、operator new、placement new的区别
  (1) `new`，也就是`new operator`,主要执行了以下操作
+ 
    * 调用`operator new`分配内存
    * 调用构造函数生成类对象
    * 返回相应指针
 
 (2) `operator new`申请堆内存空间，并进行内存对齐,有三种重载形式
+
   * `void * operator new(std::size_t size) throw (std::bad_alloc);`分配size字节的存储空间，进行内存对齐,成功返回非空的指针指向首地址,失败则抛出异常.可以被用户更换、重载,但一般在类中重载.
   * `void *operator new(std::size_t size, const std::nothrow_t &nothrow) throw();`分配失败时不抛出异常.可以重载.
   * `void *opeator new(std:size_t size, void *ptr) throw();`这个也就是我们所说的`placement new`, 它不分配内存,调用构造函数在ptr所指的地址构造对象,这个函数不可重载.
@@ -37,6 +39,7 @@
 
 ##memory pool整理方式
 当要分配的内存小于128bytes时，为了降低额外负担，采用memory pool整理方式,主要由以下几个函数实现:
+
 * allocate(), 分配内存空间. 首先要判断区块大小,如果大于128bytes就直接调用一级配置器,直接从内存中分配. 如果小于128bytes就检查对应的`free_list`. 如果它有可用的区块，就直接从`free_list`中取出
 
 * refill(), 调用allocate()发现`free_list`中没有可用区块时需要调用refill(),准备为`free_list`重新填充空间.
