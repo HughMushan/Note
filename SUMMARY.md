@@ -7,7 +7,7 @@
 
 * [C++ Tips](C++Tips/README.md)
   * [Interview code](C++Tips/Interview_code.md)
-  * [The Annotated STL Sources](C++Tips/The_Annotated_STL_Sources.md)
+  * [The Annotated STL Sources](C++Tips/Allocator.md)
 
 
 * [Machine Learning](MachineLearning/README.md)
