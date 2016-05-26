@@ -25,5 +25,20 @@ Q1: 利用function template的参数推导机制可以获取迭代器所指对�
 S1:　通过声明内嵌类型解决
 
 ```c++
-
+  template<class T>
+  struct MyIter {
+    typedef T value_type;
+    T *ptr;
+    MyIter(T *p = 0):ptr(p) {}
+    T& operator*() const{return *ptr;}
+    // ...
+  }
+  
+  template <class I>
+  typename I::value_type
+  func( I iter) { return *iter;}
+  
+  // ...
+  MyIter<int> ite(new int(8));
+  cout << func(ite) << endl; //输出８
 ```
