@@ -16,7 +16,6 @@
   {
     func_impl(iter, *iter); //通过function template的参数推导机制 
   }
-  
-  
-  
+    
 ```
+
