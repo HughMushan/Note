@@ -48,5 +48,15 @@ Q2: 万一上述的class I不是class type，而是原生指针，无法定义�
 S2: 通过template partial specilization(模板偏特化)解决，针对特定情况做特殊化处理
 
 ```c++
+  //一般情况
+  template <class I>
+  struct iterator_traits {
+    typedef typename I:value_type value_type;
+  };
+  
+  template <class T>
+  struct iterator_traits<T *> {
+    typedef T value_type;
+  };
 ```
 
