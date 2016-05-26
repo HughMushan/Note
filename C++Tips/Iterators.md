@@ -36,9 +36,14 @@ S1:　通过声明内嵌类型解决
   
   template <class I>
   typename I::value_type
-  func( I iter) { return *iter;}
+  func(I iter) { return *iter;}
   
   // ...
   MyIter<int> ite(new int(8));
   cout << func(ite) << endl; //输出８
 ```
+
+Q2: 万一迭代器所指的不是一个class type，而是一个原生指针，就无法通过上述的解决方案解决，要怎么办？
+
+S2: 通过template partial specilization(模板偏特化)解决，针对特定情况做特殊化处理
+
