@@ -59,5 +59,8 @@ S2: 通过template partial specilization(模板偏特化)解决，针对特定�
   struct iterator_traits<T *> {
     typedef T value_type;
   };
+  
 ```
+**那什么是traits编程技法**
+
 
