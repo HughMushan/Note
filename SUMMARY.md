@@ -9,6 +9,7 @@
   * [Interview code](C++Tips/Interview_code.md)
   * [Allocator](C++Tips/Allocator.md)
   * [Iterators](C++Tips/Iterators.md)
+  * [Sequence containers](C++Tips/Sequence_containers.md)
 
 
 * [Machine Learning](MachineLearning/README.md)
