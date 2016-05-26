@@ -54,7 +54,7 @@ S2: 通过template partial specilization(模板偏特化)解决，针对特定�
     typedef typename I:value_type value_type;
   };
   
-  ／／原生指针
+  //原生指针
   template <class T>
   struct iterator_traits<T *> {
     typedef T value_type;
