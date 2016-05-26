@@ -170,6 +170,7 @@ S2: 通过template partial specilization(模板偏特化)解决，针对特定�
 	}
 ```
 
+'使用例子'
 ```c++
     
     namespace {
