@@ -10,4 +10,13 @@
   {
     T temp; //这里获取了迭代器所指对象类型
   }
+  
+  template<class I>
+  inline void func(I iter)
+  {
+    func_impl(iter, *iter); //通过function template的参数推导机制 
+  }
+  
+  
+  
 ```
