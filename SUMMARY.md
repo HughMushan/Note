@@ -8,7 +8,7 @@
 * [C++ Tips](C++Tips/README.md)
   * [Interview code](C++Tips/Interview_code.md)
   * [Allocator](C++Tips/Allocator.md)
-  * [Iterator](C++Tips/Iterator.md)
+  * [Iterators](C++Tips/Iterators.md)
 
 
 * [Machine Learning](MachineLearning/README.md)
