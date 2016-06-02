@@ -1,4 +1,4 @@
-fold, threshold, accuracy, auc, eer
+fold | threshold | accuracy | auc | eer
 0, 0.47, 0.91, 0.96, 0.90
 1, 0.47, 0.87, 0.94, 0.87
 2, 0.47, 0.87, 0.93, 0.87
