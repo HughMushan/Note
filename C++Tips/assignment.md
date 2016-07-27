@@ -8,6 +8,11 @@
 ```c++
 class CMyString 
 {
-
+public:
+    CMyString(char *pData = NULL);
+    CMyString(const CMyString& str);
+    ~CMyString();
+private:
+    char *m_pData;
 }
 ```
