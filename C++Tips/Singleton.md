@@ -37,6 +37,5 @@ protected:
 private:
     Singleton(const Singleton&){}
     Singleton &operator=(const Singleton &){}    
-
-
+}
 ```
