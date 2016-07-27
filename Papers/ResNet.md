@@ -7,4 +7,4 @@
 
 随后提出了Residual Learning框架， 假设原来的深度学习模型中，每一层学到的是一个潜在的映射$$H(x)$$ , 在Residual Learning中，每一层学到的是$$F(x) = H(x) + x $$，其框架如图２所示
 
-![img](image/ResNet/ResNet-fig２.png)
+![img](image/ResNet/ResNet-fig2.png)
