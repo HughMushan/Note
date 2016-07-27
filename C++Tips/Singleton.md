@@ -26,7 +26,7 @@ template<class T>
 class Singleton
 {
 public: 
-    static T& Singleton() {
+    static T&  get_instance() {
         static T instance;
         return instance;
     }
@@ -38,4 +38,35 @@ private:
     Singleton(const Singleton&){}
     Singleton &operator=(const Singleton &){}    
 }
+```
+当然上述的实现仍然有一些问题，比如没有考虑线程安全问题
+
+###线程安全
+
+```c++
+template<class T>
+class Singleton
+{
+public:
+    static T& get_instance() {
+        if(m_pInstance == NULL) {
+            Lock lock;
+            if(m_pInstance == NULL) {
+                m_pInstance = new T();
+            }
+        }
+        return *m_pInstance;    
+    }
+
+
+protected:
+    Singleton(){}
+
+private:
+    static T *m_pInstance;
+    Singleton(const Singleton&){}
+    Singleton &operator=(const Singleton &){}    
+
+
+
 ```
