@@ -22,7 +22,21 @@ private：
 ###考虑重用
 
 ```c++
-template<typename T>
+template<class T>
+class Singleton
+{
+public: 
+    static T& Singleton() {
+        static T instance;
+        return instance;
+    }
+
+protected:
+    Singleton(){}
+
+private:
+    Singleton(const Singleton&){}
+    Singleton &operator=(const Singleton &){}    
 
 
 ```
