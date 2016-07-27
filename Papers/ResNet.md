@@ -7,6 +7,12 @@
 
 随后提出了Residual Learning框架， 假设原来的深度学习模型中，每一层学到的是一个潜在的映射$$H(x)$$ , 在Residual Learning中，每一层学到的是$$F(x) = H(x) － x $$，并认为其更容易优化和因为层数增加而受益。其框架如图２所示。
 
-![img](image/ResNet/ResNet-fig2.png)
+![img](image/ResNet/resnets_2.png)
 
-![img](image/ResNet/ResNet-fig3.png)
+与VGG模型、34层不加input、34层ResNet做了对比, ResNet可以提取到更好的特征，具有更好的训练误差，测试效果更好。然后做了不同层数的ResNet对比，层数的增加不断减少ResNet的训练误差。
+
+###需要注意的一些实现细节
+
+1. Scale augmentation. 将图片小的一边随机放大到[224, 480]之间,然后再随机截取224*224大小区域，随机做水平翻转，并且减去均值。
+
+
