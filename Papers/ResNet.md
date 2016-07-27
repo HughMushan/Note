@@ -15,4 +15,8 @@
 
 1. Scale augmentation. 将图片小的一边随机放大到[224, 480]之间,然后再随机截取224*224大小区域，随机做水平翻转，并且减去均值。
 
+2. Standard color augmentation. 这个不大懂, 要去看这篇[论文](http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
 
+3. 要注意在卷积之后和ReLU之前做Batch Norm处理
+
+４．
