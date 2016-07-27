@@ -53,6 +53,7 @@ public:
             Lock lock;
             if(m_pInstance == NULL) {
                 m_pInstance = new T();
+                atexit(Destroy);
             }
         }
         return *m_pInstance;    
@@ -63,10 +64,28 @@ protected:
     Singleton(){}
 
 private:
+    void Destroy() {
+        if(m_pInstance != NULL) {
+            delete m_pInstance;
+            m_pInstance = NULL;
+        }
+    }
     static T *m_pInstance;
     Singleton(const Singleton&){}
     Singleton &operator=(const Singleton &){}    
 
+}
 
+template<class T>
+T* Singleton:m_pInstance = NULL;
 
 ```
+局部静态变量在多线程下会出现问题，因为编译器为了满足局部静态变量只被初始化一次，会通过一个全局的标志位记录该静态变量是否已经被初始化。其伪代码可以写成如下
+```c++
+bool flag = false;
+if(!flag) {
+    flag = true;
+    staticvar = initstatic();
+}
+```
+在多线程环境下，对这个flag的判断会出现问题，有可能会出现多个线程同时进入if分支里面。
