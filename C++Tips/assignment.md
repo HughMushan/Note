@@ -28,3 +28,17 @@ private:
 4. 是否判断传入的参数和当前的实例是不是同一个实例。 
 
 5. 有没有考虑异常安全情况。
+
+```c++
+CMyString& CMyString::operator = (const CMyString& str)
+{
+    if(this != &str) {
+        CMyString temp(str);
+        char *pTemp = str.m_pData;
+        str.m_pData = m_pData;
+        m_pData = pTemp;
+    }
+    return *this;
+}
+
+```
