@@ -18,5 +18,3 @@
 2. Standard color augmentation. 这个不大懂, 要去看这篇[论文](http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
 
 3. 要注意在卷积之后和ReLU之前做Batch Norm处理
-
-４．
