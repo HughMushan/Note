@@ -41,7 +41,7 @@ prev_permutation跟next_permutation类似，只是关键的比较不一样而已
 ```c++
 namespace HughAlg
 {
-    //假设之前的结构都是已经符合heap的要求，要添加的值已经写进容器的最后位置
+    //假设之前的结构都是已经符合heap的要求
 template<class RandomAccessIterator, class Distance, class T>
     void __push_heap(RandomAccessIterator first, Distance hole, Distance top, T value)
     {
