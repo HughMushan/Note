@@ -112,7 +112,7 @@ template<class RandomAccessIterator>
         HughAlg::make_heap(first, middle);
         for(RandomAccessIterator it = middle; it < last; it ++)
         {
-            if(comp(*it, *first)){
+            if(*it < *first){
                 T value = *it;
                 *it = *first;
                 HughAlg::adjust_heap(first, first-first, middle-first, value);
