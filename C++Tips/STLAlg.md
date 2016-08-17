@@ -128,3 +128,26 @@ template<class RandomAccessIterator>
 }
 
 ```
+
+###list的排序
+> 有点不大好理解，主要用merge sort的思想
+
+```c++
+template<class T>
+void list::sort(){
+    //判断是否为空或者只有一个元素
+    if(node->next == node || link_type(node->next)->next == node)
+        return;
+    //用于merge的中间变量
+    list<T> carry;
+    list<T> counter[64];
+    int fill = 0;
+    
+    while(empty()) {
+        //carry
+        carry.splice(carry.begin(), *this, begin());
+        
+    }
+
+
+```
