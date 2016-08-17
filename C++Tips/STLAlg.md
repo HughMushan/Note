@@ -77,6 +77,7 @@ template<class RandomAccessIterator, class Distance, class T>
         HughAlg::__push_heap(first, hole, top, value);
     }
     
+    //从中间开始调整
 template<class RandomAccessIterator>
     void make_heap(RandomAccessIterator first, RandomAccessIterator last)
     {
