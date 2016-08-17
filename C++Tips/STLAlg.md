@@ -75,7 +75,7 @@ template<class RandomAccessIterator, class Distance, class T>
             *(first+hole) = *(first+child-1);
             hole = child-1;
         }
-        //上面还没有将value值加到heap中，需要自下而上添加value值
+        //上面还没有将value值加到heap中，而且还不是完全符合heap结构的，需要自下而上添加value值
         HughAlg::__push_heap(first, hole, top, value);
     }
     
