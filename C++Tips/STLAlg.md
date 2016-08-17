@@ -38,3 +38,6 @@ prev_permutation跟next_permutation类似，只是关键的比较不一样而已
 
 ###heap系列的算法
 
+```c++
+
+```
