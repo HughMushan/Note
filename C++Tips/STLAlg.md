@@ -109,6 +109,7 @@ template<class RandomAccessIterator>
         HughAlg::pop_heap(first, last--);
     }
 
+    //排出前n个，先将前n个变成heap的格式，遍历后面len-n个元素，如果比最大值堆的第一个小，那么交换位置，重新调整heap
 template<class RandomAccessIterator>
     void partial_sort(RandomAccessIterator first, RandomAccessIterator middle, RandomAccessIterator last)
     {
