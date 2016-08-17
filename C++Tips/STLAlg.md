@@ -157,6 +157,12 @@ void list::sort(){
         if(i == fill) ++fill;
         
     }
+    
+    for(int i = 1; i < fill; i++)
+    {
+        counter[i].merge(counter[i-1]);
+    }
 
+    swap(counter[fill-1]);
 
 ```
