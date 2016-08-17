@@ -32,6 +32,7 @@ bool next_permutation(RandomAccessIterator first, RandomAccessIterator last)
             return false;    
         }
     }
-
 }
 ```
+prev_permutation跟next_permutation类似，只是关键的比较不一样而已。
+
