@@ -55,6 +55,7 @@ template<class RandomAccessIterator, class Distance, class T>
         *(first+hole) = value;
     }
     
+    //调整容器，使得以hole为根的堆保持堆的格式
 template<class RandomAccessIterator, class Distance, class T>
     void adjust_heap(RandomAccessIterator first, Distance hole, Distance len, T value)
     {
