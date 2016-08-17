@@ -8,6 +8,7 @@
     
     * [单例模式](C++Tips/Singleton.md)
     * [STL中的算法](C++Tips/STLAlg.md)
+    * 赋值构造函数
     
 * [机器学习相关](MachineLearning/README.md)
 * [论文](Papers/README.md)
