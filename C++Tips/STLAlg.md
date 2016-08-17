@@ -146,6 +146,15 @@ void list::sort(){
     while(empty()) {
         //将list的一个元素放进carry中，这里list的元素数量会少一
         carry.splice(carry.begin(), *this, begin());
+        int i = 0;
+        while(i < fill && !counter[i].empty()) {
+            //merge并且排序
+            counter[i].merge(carry);
+            //将当前级别数量排好序的数据放进carry中(有点进位的意思)
+            carry.swap(counter[i++]);
+        }
+        carry.swap(counter[i]);
+        if(i == fill) ++fill;
         
     }
 
