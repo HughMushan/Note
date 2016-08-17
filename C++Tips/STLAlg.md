@@ -59,7 +59,7 @@ template<class RandomAccessIterator, class Distance, class T>
 template<class RandomAccessIterator, class Distance, class T>
     void adjust_heap(RandomAccessIterator first, Distance hole, Distance len, T value)
     {
-        //先不考虑根节点，先将根节点外的节点按照heap格式要求调整，将根节点放到最后
+        //先不考虑根节点，自上而下的将子节点中大的放到根节点
         Distance top = hole;
         Distance child = 2 * hole + 2;
         while(child < len) {
@@ -75,6 +75,7 @@ template<class RandomAccessIterator, class Distance, class T>
             *(first+hole) = *(first+child-1);
             hole = child-1;
         }
+        //上面的操作还不能保证满足了heap的格式，而且新的值还没有加进来，需要自下而上的将新的值加进去
         HughAlg::__push_heap(first, hole, top, value);
     }
     
