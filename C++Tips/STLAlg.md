@@ -101,6 +101,7 @@ template<class RandomAccessIterator>
         HughAlg::adjust_heap(first, first-first, last-first-1, value);
     }
     
+    //不停的pop就行了, O(nlgn)
 template<class RandomAccessIterator>
     void sort_heap(RandomAccessIterator first, RandomAccessIterator last)
     {
