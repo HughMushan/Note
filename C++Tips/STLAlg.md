@@ -165,5 +165,6 @@ void list::sort(){
     }
 
     swap(counter[fill-1]);
+}
 
 ```
