@@ -91,6 +91,7 @@ template<class RandomAccessIterator>
         }
     }
     
+    //将第一个元素放到最后，并重新调整[first, last-1)区间的heap格式
 template<class RandomAccessIterator>
     void pop_heap(RandomAccessIterator first, RandomAccessIterator last)
     {
