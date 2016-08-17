@@ -59,6 +59,7 @@ template<class RandomAccessIterator, class Distance, class T>
 template<class RandomAccessIterator, class Distance, class T>
     void adjust_heap(RandomAccessIterator first, Distance hole, Distance len, T value)
     {
+        //先不考虑根节点，先将根节点外的节点按照heap格式要求调整，将根节点放到最后
         Distance top = hole;
         Distance child = 2 * hole + 2;
         while(child < len) {
