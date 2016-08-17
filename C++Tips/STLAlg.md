@@ -41,7 +41,8 @@ prev_permutation跟next_permutation类似，只是关键的比较不一样而已
 ```c++
 namespace HughAlg
 {
-    template<class RandomAccessIterator, class Distance, class T>
+    
+template<class RandomAccessIterator, class Distance, class T>
     void __push_heap(RandomAccessIterator first, Distance hole, Distance top, T value)
     {
         Distance parent = (hole - 1)/2;
@@ -53,7 +54,8 @@ namespace HughAlg
         }
         *(first+hole) = value;
     }
-    template<class RandomAccessIterator, class Distance, class T>
+    
+template<class RandomAccessIterator, class Distance, class T>
     void adjust_heap(RandomAccessIterator first, Distance hole, Distance len, T value)
     {
         Distance top = hole;
@@ -72,48 +74,52 @@ namespace HughAlg
             hole = child-1;
         }
         HughAlg::__push_heap(first, hole, top, value);
-}
+    }
+    
 template<class RandomAccessIterator>
-void make_heap(RandomAccessIterator first, RandomAccessIterator last)
-{
-typedef typename RandomAccessIterator::difference_type Distance;
-Distance hole = (last - first)/2;
-while(true)
-{
-HughAlg::adjust_heap(first, hole, last-first, *(first+hole));
-if(hole==0) return;
-hole --;
-}
-}
+    void make_heap(RandomAccessIterator first, RandomAccessIterator last)
+    {
+        typedef typename RandomAccessIterator::difference_type Distance;
+        Distance hole = (last - first)/2;
+        while(true)
+        {
+            HughAlg::adjust_heap(first, hole, last-first, *(first+hole));
+            if(hole==0) return;
+            hole --;
+        }
+    }
+    
 template<class RandomAccessIterator>
-void pop_heap(RandomAccessIterator first, RandomAccessIterator last)
-{
-typedef typename RandomAccessIterator::value_type T;
-T value = *(last-1);
-*(last-1) = *first;
-HughAlg::adjust_heap(first, first-first, last-first-1, value);
-}
+    void pop_heap(RandomAccessIterator first, RandomAccessIterator last)
+    {
+        typedef typename RandomAccessIterator::value_type T;
+        T value = *(last-1);
+        *(last-1) = *first;
+        HughAlg::adjust_heap(first, first-first, last-first-1, value);
+    }
+    
 template<class RandomAccessIterator>
-void sort_heap(RandomAccessIterator first, RandomAccessIterator last)
-{
-while(last-first>1)
-HughAlg::pop_heap(first, last--);
-}
+    void sort_heap(RandomAccessIterator first, RandomAccessIterator last)
+    {
+        while(last-first>1)
+        HughAlg::pop_heap(first, last--);
+    }
+
 template<class RandomAccessIterator>
-void partial_sort(RandomAccessIterator first, RandomAccessIterator middle, RandomAccessIterator last)
-{
-typedef typename RandomAccessIterator::value_type T;
-HughAlg::make_heap(first, middle);
-for(RandomAccessIterator it = middle; it < last; it ++)
-{
-if(comp(*it, *first)){
-T value = *it;
-*it = *first;
-HughAlg::adjust_heap(first, first-first, middle-first, value);
-}
-}
-HughAlg::sort_heap(first, middle);
-}
+    void partial_sort(RandomAccessIterator first, RandomAccessIterator middle, RandomAccessIterator last)
+    {
+        typedef typename RandomAccessIterator::value_type T;
+        HughAlg::make_heap(first, middle);
+        for(RandomAccessIterator it = middle; it < last; it ++)
+        {
+            if(comp(*it, *first)){
+                T value = *it;
+                *it = *first;
+                HughAlg::adjust_heap(first, first-first, middle-first, value);
+            }
+        }
+        HughAlg::sort_heap(first, middle);
+    }
 }
 
 ```
