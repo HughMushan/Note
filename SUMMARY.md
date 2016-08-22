@@ -8,7 +8,8 @@
   * [赋值构造函数](C++Tips/Assignment.md)
   * [STL中的算法](C++Tips/STLAlg.md)
 
-* \(操作系统相关\)\[OS\/README.md\]
+
+* \[操作系统相关\]\(OS\/README.md\)
 
   * 关于系统调用
 
