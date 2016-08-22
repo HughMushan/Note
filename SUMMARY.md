@@ -9,7 +9,7 @@
   * [STL中的算法](C++Tips/STLAlg.md)
 
 
-* \[操作系统相关\]\(OS\/README.md\)
+* 操作系统相关
 
   * 关于系统调用
 
