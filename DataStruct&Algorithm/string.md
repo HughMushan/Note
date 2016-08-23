@@ -159,7 +159,7 @@ O(n2) is acceptable. Can you implement an O(n) algorithm? (hint: _KMP_)
 * "ABCDAB"的前缀为[A, AB, ABC, ABCD, ABCDA]，后缀为[BCDAB, CDAB, DAB, AB, B]，共有元素为"AB"，长度为2；
 * "ABCDABD"的前缀为[A, AB, ABC, ABCD, ABCDA, ABCDAB]，后缀为[BCDABD, CDABD, DABD, ABD, BD, D]，共有元素的长度为0
   
-当模式串最后一个D与源串发生不匹配，此时已匹配数为６，查看next[6-1]为２，重新将已匹配数设为２，比较模式串的第三个字符是否与源串匹配。如此类推。详细KMP算法讲解可以参考[这里](http://www.cnblogs.com/c-cloud/p/3224788.html)。
+当模式串最后一个D与源串发生不匹配，此时已匹配数为6，查看next[6-1]为2，重新将已匹配数设为2，比较模式串的第三个字符是否与源串匹配。如此类推。详细KMP算法讲解可以参考[这里](http://www.cnblogs.com/c-cloud/p/3224788.html)。
 
 代码实现如下：
 ```c++
