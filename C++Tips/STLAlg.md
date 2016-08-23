@@ -145,7 +145,7 @@ void list::sort(){
     list<T> counter[64];
     int fill = 0;
     
-    while(empty()) {
+    while(!empty()) {
         //将list的一个元素放进carry中，这里list的元素数量会少一
         carry.splice(carry.begin(), *this, begin());
         int i = 0;
