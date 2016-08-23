@@ -7,8 +7,8 @@
     * [STL中的算法](C++Tips/STLAlg.md)
 * [操作系统相关](OS/README.md)
     * [关于系统调用](OS/Syscall.md)
-
 * [数据结构与算法](DataStruct&Algorithm/README.md)
+    * [字符串常见算法](DataStruct&Algorithm/string.md)
     
 * [机器学习相关](MachineLearning/README.md)
 
