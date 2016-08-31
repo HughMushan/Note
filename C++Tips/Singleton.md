@@ -89,3 +89,38 @@ if(!flag) {
 }
 ```
 在多线程环境下，对这个flag的判断会出现问题，有可能会出现多个线程同时进入if分支里面。
+
+最近看到资料，有人指出由于乱序执行的影响，DCL也是靠不住的。可以直接使用pthread_once_t来保证lazy_initialization的线程安全
+```c++
+template<class T>
+class Singleton
+{
+public:
+    static T& get_instance()
+    {
+        pthread_once(&ponce_, &Singleton::init);
+        return *m_pInstance;
+    }
+
+private:
+    Singleton();
+    ~Singleton();
+    Singleton(const Singleton&){}
+    Singleton &operator=(const Singleton &){}
+    static void init(){m_pInstance = new T();}
+
+private:
+    static pthread_once_t ponce_;
+    static T *m_pInstance;
+};
+
+template<class T>
+pthread_once_t Singleton<T>::ponce_ = PTHREAD_ONCE_INIT;
+
+template<class T>
+T* Singleton<T>::m_pInstance = NULL;
+
+
+
+}
+```
