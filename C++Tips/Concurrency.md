@@ -8,3 +8,14 @@
 
 
 ##互斥器(mutex)
+* 用RAII手法封装mutex的创建、销毁、加锁、解锁
+* 只用非递归的mutex。递归的mutex和非递归的mutex的唯一区别在于同一个线程中可以重复对递归的mutex加锁，但是不能重复对非递归的mutex加锁。
+* 不手动调用lock()和unlock()函数，交给Gurad对象的构造和析构函数负责
+* 每次构造Guard对象的时候，思考一路上已经持有的锁，防止因加锁顺序不同而导致死锁
+* 不使用跨进程的mutex，进程间通信只使用TCP sockets
+* 必要时考虑用PTHREAD_MUTEX_ERRORCHECK来排错
+
+##条件变量
+* 必须与mutex一起使用，该布尔表达式的读写受到mutex的保护
+* 在mutex已上锁的时候才能调用wait()
+* 把判断布尔条件和wait()放到while循环中
