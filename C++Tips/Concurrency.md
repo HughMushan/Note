@@ -18,4 +18,4 @@
 ##条件变量
 * 必须与mutex一起使用，该布尔表达式的读写受到mutex的保护
 * 在mutex已上锁的时候才能调用wait()
-* 把判断布尔条件和wait()放到while循环中
+* 把判断布尔条件和wait()放到while循环中，考虑到存在虚假唤醒(spurious weakup)的情况
