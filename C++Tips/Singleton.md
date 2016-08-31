@@ -120,7 +120,4 @@ pthread_once_t Singleton<T>::ponce_ = PTHREAD_ONCE_INIT;
 template<class T>
 T* Singleton<T>::m_pInstance = NULL;
 
-
-
-}
 ```
