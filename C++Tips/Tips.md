@@ -3,7 +3,18 @@
 ##关于`static`
 ###面向过程中的static
 1. 静态全局变量
-在全局变量前，加上关键字static，该变量就被定义成为一个静态全局变量。我们先举一个静态全局变量的例子，如下： //Example 1#include <iostream.h>void fn();static int n; //定义静态全局变量void main(){ n=20; cout<<n<<endl; fn();}
+在全局变量前，加上关键字static，该变量就被定义成为一个静态全局变量。我们先举一个静态全局变量的例子，如下：
+```c++ 
+//Example 1
+#include <iostream.h>
+void fn();
+static int n; //定义静态全局变量
+void main()
+{   n=20;
+    cout<<n<<endl; 
+    fn();
+}
+```
 
 void fn(){ n++; cout<<n<<endl;}静态全局变量有以下特点： • 该变量在全局数据区分配内存； • 未经初始化的静态全局变量会被程序自动初始化为0（自动变量的值是随机的，除非它被显式初始化）； • 静态全局变量在声明它的整个文件都是可见的，而在文件之外是不可见的；
 
