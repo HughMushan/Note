@@ -12,6 +12,8 @@
     * [字符串常见算法](DataStruct&Algorithm/string.md)
     
 * [机器学习相关](MachineLearning/README.md)
+    * 线性代数基础(MachineLearning/linear_algebra.md)
+    *
 
 * [论文](Papers/README.md)
 
