@@ -13,7 +13,21 @@
 6. 通信方面：进程间通信需要借助操作系统，线程间可以直接读写进程数据段来通信
 
 #[Linux进程通信](https://github.com/clpsz/linux-ipcs)
-1. 管道(pipe)和有名管道(named pipe)
+1. 管道(pipe)
+
+管道是linux系统中最常用的进程间通信方式，我们平常在命令行中使用如下命令：
+```shell
+cat /tmp/xxx.txt | grep abc
+```
+就是使用了管道在cat进程和grep进程间传递数据
+
+pipe的限制有两个：
+
+1. 只能用于父子进程等有关联的进程之间来通信
+2. pipe是单工的，如果要相互通信，需要开两个管道
+
+2. 有名管道(named pipe)
+
 
 
 
