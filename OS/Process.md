@@ -12,7 +12,8 @@
 
 6. 通信方面：进程间通信需要借助操作系统，线程间可以直接读写进程数据段来通信
 
-#Linux进程通信与进程同步
+#[Linux进程通信](https://github.com/clpsz/linux-ipcs)
+1. 管道(pipe)和有名管道(named pipe)
 
 
 
