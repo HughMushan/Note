@@ -69,17 +69,20 @@ key参数为IPC_PRIVATE；
 
 注：参数key设置成常数IPC_PRIVATE并不意味着其他进程不能访问该消息队列，只意味着即将创建新的消息队列。
 
-int msgrcv(int msqid, struct msgbuf *msgp, int msgsz,long msgtyp, int msgflg);
+
+##### 2) `int msgrcv(int msqid, struct msgbuf *msgp, int msgsz,long msgtyp, int msgflg);`
+
 该系统调用从msgid代表的消息队列中读取一个消息，并把消息存储在msgp指向的msgbuf结构中。
 msqid为消息队列描述字；消息返回后存储在msgp指向的地址，
 
 msgsz指定msgbuf的mtext成员的长度（即消息内容的长度），
 
 msgtyp为请求读取的消息类型,取值为：0,正整数，负整数
-
+```
     0，表示读取队列中的第一条消息
     >0, 表示队列中类型为msgtyp的第一条消息被读取；如果msgflg设置成MSG_EXCEPT，则表示队列中除了类型是msgtyp的第一条消息将被读取。
     <0, 表示小于或等于msgtyp绝对值的最小的消息类型的第一条消息将被读取。
+```
 
 举个例子：假设消息队列中依次有类型为3的消息2个，类型为4的消息2个，类型为1的消息2个。如果msgtyp=0，则读取类型为3的第一条消息；如果msgtyp=4，则读取类型为4的第一条消息（如果msgflg设置成MSG_EXCEPT，则读取类型为3的第一条消息）；如果msgtyp=-3,则读取类型为1的第一条消息。
 
