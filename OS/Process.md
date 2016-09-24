@@ -40,6 +40,79 @@ pipe的限制有两个：
 * 可以像变通文件一样管理管道的权限
 * 可以使用标准文件读写方式来操作管道(打开，读/写，关闭)
 
+####3. 消息队列(XSI_MSGQ)
+message queue是三种XSI IPC方式之一，另外两种分别是semaphore和shared memory
+
+
+系统V消息队列API共有四个，使用时需要包括几个头文件：
+
+```c++
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include <sys/msg.h>
+```
+
+* int msgget(key_t key, int msgflg)
+参数key是一个键值，由ftok获得；msgflg参数是一些标志位。该调用返回与健值key相对应的消息队列描述字。
+在以下两种情况下，该调用将创建一个新的消息队列：
+如果没有消息队列与健值key相对应，并且msgflg中包含了IPC_CREAT标志位；
+key参数为IPC_PRIVATE；
+参数msgflg可以为以下：IPC_CREAT、IPC_EXCL、IPC_NOWAIT或三者的或结果：
+
+当只有IPC_CREAT选项打开时,若不存在则创建信号量集返回该ID，若存在，则都返回该信号量集的ID，
+当只有IPC_EXCL选项打开时，不管有没有该信号量集，shmget()都返回-1
+所以当IPC_CREAT | IPC_EXCL时, 如果没有该信号量，则创建，并返回ID。若已有该信号量集，则返回-1；
+
+
+调用返回：成功返回消息队列描述字，否则返回-1。
+
+注：参数key设置成常数IPC_PRIVATE并不意味着其他进程不能访问该消息队列，只意味着即将创建新的消息队列。
+
+2）int msgrcv(int msqid, struct msgbuf *msgp, int msgsz,long msgtyp, int msgflg);
+该系统调用从msgid代表的消息队列中读取一个消息，并把消息存储在msgp指向的msgbuf结构中。
+msqid为消息队列描述字；消息返回后存储在msgp指向的地址，
+
+msgsz指定msgbuf的mtext成员的长度（即消息内容的长度），
+
+msgtyp为请求读取的消息类型,取值为：0,正整数，负整数
+
+    0，表示读取队列中的第一条消息
+    >0, 表示队列中类型为msgtyp的第一条消息被读取；如果msgflg设置成MSG_EXCEPT，则表示队列中除了类型是msgtyp的第一条消息将被读取。
+    <0, 表示小于或等于msgtyp绝对值的最小的消息类型的第一条消息将被读取。
+
+举个例子：假设消息队列中依次有类型为3的消息2个，类型为4的消息2个，类型为1的消息2个。如果msgtyp=0，则读取类型为3的第一条消息；如果msgtyp=4，则读取类型为4的第一条消息（如果msgflg设置成MSG_EXCEPT，则读取类型为3的第一条消息）；如果msgtyp=-3,则读取类型为1的第一条消息。
+
+读消息标志msgflg可以为以下几个常值的或：
+IPC_NOWAIT 如果没有满足条件的消息，调用立即返回，此时，errno=ENOMSG
+IPC_EXCEPT 与msgtyp>0配合使用，返回队列中第一个类型不为msgtyp的消息
+IPC_NOERROR 如果队列中满足条件的消息内容大于所请求的msgsz字节，则把该消息截断，截断部分将丢失。
+
+msgrcv()解除阻塞的条件有三个：
+消息队列中有了满足条件的消息；
+msqid代表的消息队列被删除；
+调用msgrcv（）的进程被信号中断；
+
+调用返回：成功返回读出消息的实际字节数，否则返回-1。
+
+3）int msgsnd(int msqid, struct msgbuf *msgp, int msgsz, intmsgflg);
+向msgid代表的消息队列发送一个消息，即将发送的消息存储在msgp指向的msgbuf结构中，消息的大小由msgze指定。
+对发送消息来说，有意义的msgflg标志为IPC_NOWAIT，指明在消息队列没有足够空间容纳要发送的消息时，msgsnd是否等待。造成msgsnd()等待的条件有两种：
+当前消息的大小与当前消息队列中的字节数之和超过了消息队列的总容量；
+当前消息队列的消息数（单位"个"）不小于消息队列的总容量（单位"字节数"），此时，虽然消息队列中的消息数目很多，但基本上都只有一个字节。
+msgsnd()解除阻塞的条件有三个：
+不满足上述两个条件，即消息队列中有容纳该消息的空间；
+msqid代表的消息队列被删除；
+调用msgsnd（）的进程被信号中断；
+调用返回：成功返回0，否则返回-1。
+
+4）int msgctl(int msqid, int cmd, struct msqid_ds *buf);
+该系统调用对由msqid标识的消息队列执行cmd操作，共有三种cmd操作：IPC_STAT、IPC_SET 、IPC_RMID。
+
+IPC_STAT：该命令用来获取消息队列信息，返回的信息存贮在buf指向的msqid结构中；
+IPC_SET：该命令用来设置消息队列的属性，要设置的属性存储在buf指向的msqid结构中；可设置属性包括：msg_perm.uid、msg_perm.gid、msg_perm.mode以及msg_qbytes，同时，也影响msg_ctime成员。
+IPC_RMID：删除msqid标识的消息队列；
+
+调用返回：成功返回0，否则返回-1。
 
 
 
