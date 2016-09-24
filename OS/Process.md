@@ -52,7 +52,7 @@ message queue是三种XSI IPC方式之一，另外两种分别是semaphore和sha
 #include <sys/msg.h>
 ```
 
-##### (1) `int msgget(key_t key, int msgflg)`
+##### 1) `int msgget(key_t key, int msgflg)`
 
 参数key是一个键值，由ftok获得；msgflg参数是一些标志位。该调用返回与健值key相对应的消息队列描述字。
 在以下两种情况下，该调用将创建一个新的消息队列：
@@ -69,7 +69,7 @@ key参数为IPC_PRIVATE；
 
 注：参数key设置成常数IPC_PRIVATE并不意味着其他进程不能访问该消息队列，只意味着即将创建新的消息队列。
 
-2）int msgrcv(int msqid, struct msgbuf *msgp, int msgsz,long msgtyp, int msgflg);
+int msgrcv(int msqid, struct msgbuf *msgp, int msgsz,long msgtyp, int msgflg);
 该系统调用从msgid代表的消息队列中读取一个消息，并把消息存储在msgp指向的msgbuf结构中。
 msqid为消息队列描述字；消息返回后存储在msgp指向的地址，
 
