@@ -124,7 +124,7 @@ IPC_RMID：删除msqid标识的消息队列；
 * 两个或者多个进程共享一块由系统内核维护的内存区域
 * 无需复制信息，最快的一种IPC机制，所以适合大文件的传输
 * 需要考虑同步访问的问题
-
+[参考资料](http://blog.csdn.net/meetings/article/details/47124775)
 
 
 
