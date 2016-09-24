@@ -52,7 +52,7 @@ message queue是三种XSI IPC方式之一，另外两种分别是semaphore和sha
 #include <sys/msg.h>
 ```
 
-#####(1) `int msgget(key_t key, int msgflg)`
+##### (1) `int msgget(key_t key, int msgflg)`
 
 参数key是一个键值，由ftok获得；msgflg参数是一些标志位。该调用返回与健值key相对应的消息队列描述字。
 在以下两种情况下，该调用将创建一个新的消息队列：
