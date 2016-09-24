@@ -78,10 +78,11 @@ msqid为消息队列描述字；消息返回后存储在msgp指向的地址，
 msgsz指定msgbuf的mtext成员的长度（即消息内容的长度），
 
 msgtyp为请求读取的消息类型,取值为：0,正整数，负整数
+
 ```
-    0，表示读取队列中的第一条消息
-    >0, 表示队列中类型为msgtyp的第一条消息被读取；如果msgflg设置成MSG_EXCEPT，则表示队列中除了类型是msgtyp的第一条消息将被读取。
-    <0, 表示小于或等于msgtyp绝对值的最小的消息类型的第一条消息将被读取。
+0，表示读取队列中的第一条消息
+>0, 表示队列中类型为msgtyp的第一条消息被读取；如果msgflg设置成MSG_EXCEPT，则表示队列中除了类型是msgtyp的第一条消息将被读取。
+<0, 表示小于或等于msgtyp绝对值的最小的消息类型的第一条消息将被读取。
 ```
 
 举个例子：假设消息队列中依次有类型为3的消息2个，类型为4的消息2个，类型为1的消息2个。如果msgtyp=0，则读取类型为3的第一条消息；如果msgtyp=4，则读取类型为4的第一条消息（如果msgflg设置成MSG_EXCEPT，则读取类型为3的第一条消息）；如果msgtyp=-3,则读取类型为1的第一条消息。
@@ -98,7 +99,8 @@ msqid代表的消息队列被删除；
 
 调用返回：成功返回读出消息的实际字节数，否则返回-1。
 
-3）int msgsnd(int msqid, struct msgbuf *msgp, int msgsz, intmsgflg);
+##### 3）`int msgsnd(int msqid, struct msgbuf *msgp, int msgsz, intmsgflg);`
+
 向msgid代表的消息队列发送一个消息，即将发送的消息存储在msgp指向的msgbuf结构中，消息的大小由msgze指定。
 对发送消息来说，有意义的msgflg标志为IPC_NOWAIT，指明在消息队列没有足够空间容纳要发送的消息时，msgsnd是否等待。造成msgsnd()等待的条件有两种：
 当前消息的大小与当前消息队列中的字节数之和超过了消息队列的总容量；
@@ -109,7 +111,7 @@ msqid代表的消息队列被删除；
 调用msgsnd（）的进程被信号中断；
 调用返回：成功返回0，否则返回-1。
 
-4）int msgctl(int msqid, int cmd, struct msqid_ds *buf);
+##### 4）`int msgctl(int msqid, int cmd, struct msqid_ds *buf);`
 该系统调用对由msqid标识的消息队列执行cmd操作，共有三种cmd操作：IPC_STAT、IPC_SET 、IPC_RMID。
 
 IPC_STAT：该命令用来获取消息队列信息，返回的信息存贮在buf指向的msqid结构中；
